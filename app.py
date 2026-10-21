@@ -82,10 +82,10 @@ st.markdown(
     """
 **Warum vergröbert man ein großes Netz erst, teilt das kleine und verfeinert dann?** Das einstufige Verfahren (Fiduccia–Mattheyses aus **bisektion-demo**) startet von einer Zufallsanordnung und verbessert sie Zug um Zug; in einem großen Netz
 bleibt es leicht in einem **lokalen Optimum** hängen, weil es nur die unmittelbare Umgebung sieht. Das **mehrstufige** Verfahren zieht erst Paare schwer verbundener Standorte zusammen (**Vergröbern**, mehrmals), teilt das
-gröbste Netz, überträgt die Teilung stufenweise auf das feinere Netz (der Schnitt bleibt dabei gleich) und **verfeinert** auf jeder Stufe. Die Demo vergleicht beide **bei gleichem Aufwand**.
+gröbste Netz, überträgt die Teilung stufenweise auf das feinere Netz (der Schnitt bleibt dabei gleich) und **verfeinert** auf jeder Stufe. Die Demo vergleicht beide **bei gleichem Aufwand** (das einstufige Verfahren darf seinen letzten Start zu Ende führen und bekommt dadurch bis zu 1,5-mal so viele Züge).
 
-Auffällig: Der Vorteil hängt stark vom Netz ab. Auf **Kartennetzen** (räumliche Struktur) ist der Schnitt des mehrstufigen Verfahrens bei 256 Standorten um knapp ein Drittel kleiner, in vielen anderen Netzen kaum oder gar nicht; auf **skalenfreien Netzen**
-mit Hubs schrumpft das Netz nur langsam. Ehrlich: Die Demo baut die einfachen Bausteine und erhebt **keinen Anspruch, Systeme wie METIS zu erreichen**.
+Auffällig: Der Vorteil hängt stark vom Netz ab. Auf **Kartennetzen** (räumliche Struktur) ist der Schnitt des mehrstufigen Verfahrens bei 256 Standorten im Mittel um knapp ein Drittel kleiner (von Netz zu Netz stark streuend), in vielen anderen Netzen kaum oder gar nicht; auf **skalenfreien Netzen**
+bringt es keinen Vorteil, und das Netz schrumpft dort beim Vergröbern langsamer, vermutlich wegen der Hubs. Ehrlich: Die Demo baut die einfachen Bausteine und erhebt **keinen Anspruch, Systeme wie METIS zu erreichen**.
 
 Das ist das sechste Stück der Reihe **Schnitte und Zusammenhang**; die Verfahren auf einer Stufe zeigt **bisektion-demo**, den Eigenvektor als Alternative **spektrale-schnitte-demo**, Paare zusammenzuziehen (Matching) **hopcroft-karp-demo** und
 **blossom-demo**. Weiter unten: die Experimente **🔬**, **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
@@ -243,10 +243,10 @@ st.markdown(
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
 | **Einfache Bausteine** | Zufälliges Heavy-Edge-Matching, FM mit Gewichten und eine Anfangsteilung aus Zufallsanordnungen: Systeme wie METIS, KaHIP oder KaMinPar sind deutlich ausgefeilter und schneller; die Demo erreicht sie nicht. | - |
-| **Gleicher Aufwand heißt gleiche Züge** | Der Aufwand zählt Züge und besuchte Standorte; die echte Rechenzeit hängt von der Umsetzung ab (hier ein Python-FM mit Suche des besten Zuges in jedem Zug). | bisektion-demo |
+| **Gleicher Aufwand heißt gleiche Züge** | Der Aufwand zählt Züge und besuchte Standorte (das einstufige Verfahren führt seinen letzten Start zu Ende und bekommt dadurch bis zu 1,5-mal so viele Züge); die echte Rechenzeit hängt von der Umsetzung ab (hier ein Python-FM mit Suche des besten Zuges in jedem Zug). | bisektion-demo |
 | **Zwei Hälften** | Mehr als zwei Teile brauchen rekursives Teilen oder direktes k-Teilen; Hypergraphen (Hyperkanten statt Leitungen) sind nicht gebaut. | multiway-cut-demo |
 | **Gleiche Leitungen am Anfang** | Alle Leitungen und Standorte zählen gleich; echte Lasten und Kapazitäten machen die Balance zu einer Gewichtsbedingung (die Demo kennt sie von den gröberen Stufen). | - |
-| **Synthetische Netze, bis 300 Standorte** | Reale Netze haben andere Strukturen; der Vorteil wächst mit der Größe (Experiment 5), über 300 Standorte wird die Python-Umsetzung langsam. | - |
+| **Synthetische Netze, bis 300 Standorte** | Reale Netze haben andere Strukturen; bei Kartennetzen kippt das Bild mit der Größe (Experiment 5, nur drei Größen), über 300 Standorte wird die Python-Umsetzung langsam. | - |
 """
 )
 

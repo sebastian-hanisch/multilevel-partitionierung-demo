@@ -69,7 +69,7 @@ def test_the_preset_descriptions_hold():
     assert (round(zufall.ml_mean, 1), round(zufall.sl_mean, 1)) == (66.9, 69.8) and zufall.wins == (5, 1, 2)
     gitter = a("Gitter: kein Vorteil")
     assert gitter.n == 256 and gitter.sl_cuts == (16,) * 8 and gitter.ml_cuts.count(16) == 6 and gitter.wins == (0, 6, 2)
-    sf = a("Skalenfreies Netz: einstufig besser")
+    sf = a("Skalenfreies Netz: kein Vorteil")
     assert len(sf.first.levels) == 9 and sf.sl_mean < sf.ml_mean and sf.wins == (2, 0, 6)
     verbund = a("Verbundnetz: einstufig reicht")
     assert verbund.ml_mean > verbund.sl_mean and verbund.wins == (2, 3, 3)
