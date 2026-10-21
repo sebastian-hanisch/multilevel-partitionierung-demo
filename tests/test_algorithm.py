@@ -185,3 +185,9 @@ def test_single_level_keeps_the_first_of_several_equally_good_starts():
     r = A.single_level(g, 3, random.Random(3), 50)
     assert len(r.starts) > 1 and set(r.starts) == {0} and r.side == first
 
+
+def test_single_level_terminates_when_no_move_is_possible():
+    g = graph(2, [(0, 1)])                                                                     # zwei Standorte: jede Halbierung ist 1 + 1, kein Zug möglich
+    r = A.single_level(g, 3, FixedRandom(), 10)
+    assert r.cut == 1 and r.side == (0, 1) and len(r.starts) == 10 and r.moves == 10
+

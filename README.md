@@ -35,7 +35,7 @@ Ein einfaches, **zusammenhängendes** Netz mit n Standorten (Zufallsnetz: Zufall
 
 ## Befunde (gemessen, keine Behauptungen)
 
-Alle Zahlen stehen in `tests/test_claims.py`; Zähler über feste Netze (je Netztyp sechs Netze mit 256 Standorten und je vier Läufe; im Verlauf nach Größe drei Netze), nie ein einzelner Zufalls-Seed. Netztypen: Kartennetz, Gitter, Ring mit Abkürzungen, skalenfreies Netz, Zufallsnetz (Grad 4), Verbundnetz (Grad 5, zwei Leitungen zwischen je zwei Regionen).
+Alle Zahlen stehen in `tests/test_claims.py`; Zähler über feste Netze (je Netztyp sechs Netze mit 256 Standorten und je vier Läufe; im Verlauf nach Größe drei Netze), nie ein einzelner Zufalls-Seed. Netztypen: Kartennetz, Gitter, Ring mit Abkürzungen, skalenfreies Netz, Zufallsnetz (Grad 4), Verbundnetz (Grad 5, eine Leitung zwischen je zwei Regionen).
 
 | Frage | Befund |
 |---|---|
@@ -60,7 +60,7 @@ Alle Zahlen stehen in `tests/test_claims.py`; Zähler über feste Netze (je Netz
 
 ## Tests
 
-Das Verzeichnis `tests/` enthält zurzeit 113 Tests (Laufzeit etwa eine Minute auf dem Entwicklungsrechner):
+Das Verzeichnis `tests/` enthält zurzeit 114 Tests (Laufzeit etwa eine Minute auf dem Entwicklungsrechner):
 
 - **Kern** (`test_algorithm.py`): jede Einheit an von Hand gerechneten Mini-Netzen: Schnitt, Grenze, Gewinne, ein FM-Durchlauf, Paarung, Zusammenfassen, Übertragen, Mitgliedergruppen, mehrstufiger Lauf auf einem Pfad mit 24 Standorten.
 - **Szenarien** (`test_scenario.py`): einfach, zusammenhängend, deterministisch für jeden Netztyp; Größen.

@@ -317,7 +317,7 @@ def single_level(g, eps, rng, budget):
     best, starts, moves = None, [], 0
     while moves < budget or not starts:
         r = fm(g, random_bisection(g, rng, eps), eps)
-        moves += r.moves
+        moves += max(r.moves, 1)                  # ein Start ohne möglichen Zug (zwei Standorte) zählt als ein Zug, sonst endete die Schleife nie
         starts.append(r.cut)
         if best is None or r.cut < best.cut:
             best = r
