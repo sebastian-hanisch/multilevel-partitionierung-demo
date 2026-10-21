@@ -1,7 +1,6 @@
 # Mehrstufig partitionieren: Vergröbern, Teilen, Verfeinern – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-multilevel-partitionierung-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-multilevel-partitionierung-demo.streamlit.app/)**
 
 Sechstes Stück der Reihe **Schnitte und Zusammenhang** (Arbeitstitel der Linie `schnitte-zusammenhang`) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“, Bereich Graphentheorie. Vehikel: ein **Verbindungsnetz zwischen Standorten** (Depots, Umschlagpunkte, Werke), synthetisch und mit festem Zufalls-Seed, bis 300 Standorte. Die Demo fragt: **Warum vergröbert man ein Netz erst, teilt das kleine und verfeinert dann, und wann lohnt das?** Aufgabe: das Netz in **zwei fast gleich schwere Hälften** teilen (Abweichung einstellbar: 1, 3 oder 10 %) und dabei möglichst wenige Leitungen zwischen den Hälften lassen. Das **mehrstufige Verfahren** paart Standorte nach dem schwersten Leitungsgewicht (Heavy-Edge-Matching), fasst jedes Paar zu einem Standort zusammen, wiederholt das bis zu einem kleinen Netz, teilt dieses (beste von fünf zufälligen Anfangsteilungen, dann verbessert) und überträgt die Teilung stufenweise zurück, nach jeder Stufe mit **Fiduccia–Mattheyses (FM)** verbessert. Es wird bei **gleichem Aufwand** (Züge und besuchte Standorte) gegen das **einstufige Verfahren** (FM mit zufälligen Neustarts auf dem feinsten Netz) gestellt. Es ist **kein METIS**: die Bausteine sind einfach (siehe Grenzen).
 
